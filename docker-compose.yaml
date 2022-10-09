@@ -1,0 +1,42 @@
+version: '3.4'
+services:
+  api-gateway:
+    image: api-gateway:0.0.1-SNAPSHOT
+    ports:
+      - '9000:9000'
+    expose:
+      - '9000'
+    deploy:
+        replicas: 1
+  eureka-server:
+    image: eureka-server:0.0.1-SNAPSHOT
+    ports:
+      - '8761:8761'
+    expose:
+      - '8761'
+    deploy:
+        replicas: 1
+  profile-ms:
+    image: profile-ms:0.0.1-SNAPSHOT
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+    deploy:
+        replicas: 1
+  order-ms:
+    image: orders-ms:0.0.1-SNAPSHOT
+    ports:
+      - '8080:8081'
+    expose:
+      - '8081'
+    deploy:
+        replicas: 1
+  order-query-ms:
+    image: order-query-ms:0.0.1-SNAPSHOT
+    ports:
+      - '8080:8082'
+    expose:
+      - '8082'
+    deploy:
+        replicas: 1              

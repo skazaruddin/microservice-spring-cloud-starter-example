@@ -1,0 +1,25 @@
+#Default port is 8761
+server:
+  port: 8761
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 20
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG
+    
+#We add these properties so that Eureka does not register with itself. 
+#As every Eureka Server is also a Eureka Client. 
+#When the server runs it not only provides the registry, 
+#it also tries to register with other Eureka Servers. 
+#Because you can have multiple instances of Eureka Servers and 
+#they can register with each other so that if one Server fails another server 
+#can still provide service.    
